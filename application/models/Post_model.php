@@ -34,7 +34,7 @@
 			return true;
 		}
 
-		public function update_post(){
+		public function update_post($id){
 			$slug = url_title($this->input->post('title'));
 			$data = array(
 				'title' => $this->input->post('title'),

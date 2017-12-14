@@ -2,6 +2,9 @@
 	class Posts extends CI_Controller{
 		var $resource = "resource/user/";
 		public function index(){
+			if(!$this->session->userdata('logged_in')){
+				redirect('admin/login');
+			}
 			$data['title'] = 'Latest Post';
 
 			$data['posts'] = $this->post_model->get_posts();
@@ -10,6 +13,9 @@
 			$this->load->view('templates/footer');
 		}
 		public function view($slug = NULL){
+			if(!$this->session->userdata('logged_in')){
+				redirect('admin/login');
+			}
 			$data['post'] = $this->post_model->get_posts($slug);
 			if(empty($data['post'])){
 				show_404();
@@ -21,6 +27,9 @@
 			$this->load->view('templates/footer');
 		}
 		public function create(){
+			if(!$this->session->userdata('logged_in')){
+				redirect('admin/login');
+			}
 			$data['title'] = 'Create Post';
 			$data['categories'] = $this->post_model->get_categories();
 			$this->form_validation->set_rules('title', 'Title', 'required');
@@ -50,10 +59,16 @@
 			}
 		}
 		public function delete($id){
+			if(!$this->session->userdata('logged_in')){
+				redirect('admin/login');
+			}
 			$this->post_model->delete_post($id);
 			redirect('posts');	
 		}
 		public function edit($slug){
+			if(!$this->session->userdata('logged_in')){
+				redirect('admin/login');
+			}
 			$data['post'] = $this->post_model->get_posts($slug);
 			$data['categories'] = $this->post_model->get_categories();
 			if(empty($data['post'])){
@@ -66,7 +81,10 @@
 			$this->load->view('templates/footer');
 		}
 		public function update($id){
-			$this->post_model->update_post();	
+			if(!$this->session->userdata('logged_in')){
+				redirect('admin/login');
+			}
+			$this->post_model->update_post($id);	
 			redirect('posts');	
 		}
 	}

@@ -12,7 +12,7 @@
 		<div class="col-sm-8">
 			<small>Posted in categories <strong><?php echo $post['name'];?></strong></small>
 			<br>
-			<?php echo word_limiter($post['body'],20);?>
+			<?php echo word_limiter($post['body'],10);?>
 			<br>
 			<p><a class="btn btn-default" href="<?php echo site_url('/posts/'.$post['slug']) ;?>">Read More</a></p>
 		</div>

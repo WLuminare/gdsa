@@ -1,7 +1,7 @@
 <h2><?= $title; ?></h2>
 <br>
 <?php echo validation_errors(); ?>
-<?php echo form_open_multipart('posts/update'); ?>
+<?php echo form_open_multipart('posts/update/'.$post['id']); ?>
   <input type="hidden" name="id" value="<?php echo $post['id'];?>">
     <div class="form-group">
     	<label>Title</label>

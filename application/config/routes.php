@@ -12,6 +12,7 @@ $route['categories'] = 'categories/index';
 $route['categories/create'] = 'categories/create';
 $route['categories/post/(:any)'] = 'categories/post/$1';
 
+$route['users/login'] = 'users/login';
 $route['(:any)'] = 'pages/view/$1';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
