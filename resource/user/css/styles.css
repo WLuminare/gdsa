@@ -82,7 +82,8 @@ Embedded content
 * 2. Improves image quality when scaled in IE 7. */
  
 img { border: 0; /* 1 */
--ms-interpolation-mode: bicubic; /* 2 */ }
+-ms-interpolation-mode: bicubic; /* 2 */ 
+width:100%;}
 /* * Corrects overflow displayed oddly in IE 9. */
 svg:not(:root) { overflow: hidden; }
 /* ==========================================================================
@@ -177,6 +178,9 @@ Headings
 /* ==========================================================================
 Custom Styles
 ========================================================================== */
+.post-thumb{
+    width:100%;
+}
 .navigation {   }
 nav.pull {
   padding: 1em 0;
@@ -329,4 +333,5 @@ Waypoints
 .navigation nav ul li a {
   font-size: 0.85em;
 }
+
 }
